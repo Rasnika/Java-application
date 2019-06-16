@@ -1,0 +1,35 @@
+package testconnection3;
+import java.sql.*;
+
+/**
+ *
+ * @author Rasnika
+ */
+public class MysqlConnection3 {
+    public static void main(String[] args){
+        try
+        {
+            String Query = "Select * from bus3 where busno=1726";
+        Class.forName("com.mysql.jdbc.Driver");
+            try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/world", "root", "system")) {
+                Statement st=con.createStatement();
+                ResultSet rs=st.executeQuery(Query);
+                rs.next();
+                String name=rs.getString("username");
+                System.out.println(name);
+            }
+        } 
+        catch(ClassNotFoundException | SQLException e){
+            
+       
+                System.out.println(e);
+        }
+       
+       
+              
+                    
+            
+            
+    
+}
+}
